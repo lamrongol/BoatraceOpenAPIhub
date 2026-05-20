@@ -1,7 +1,7 @@
 # 🚤 Boatrace Open API for Hub
 
-[![cron](https://github.com/BoatraceOpenAPI/hub/actions/workflows/cron.yml/badge.svg)](https://github.com/BoatraceOpenAPI/hub/actions/workflows/cron.yml)
-[![pages-build-deployment](https://github.com/BoatraceOpenAPI/hub/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/BoatraceOpenAPI/hub/actions/workflows/pages/pages-build-deployment)
+[![cron](https://github.com/lamrongol/BoatraceOpenAPIhub/actions/workflows/cron.yml/badge.svg)](https://github.com/lamrongol/BoatraceOpenAPIhub/actions/workflows/cron.yml)
+[![pages-build-deployment](https://github.com/lamrongol/BoatraceOpenAPIhub/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/lamrongol/BoatraceOpenAPIhub/actions/workflows/pages/pages-build-deployment)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## ⚠️ 注意事項
@@ -18,12 +18,10 @@
 
 ## 🌐 エンドポイント
 
-### [![v3](https://img.shields.io/badge/Boatrace_Open_API_for_Hub-v3-blue)](https://github.com/BoatraceOpenAPI/hub/tree/gh-pages/docs/v3)
-
-> 📅 対応期間: 2026年03月30日以降
+### [v3](https://github.com/lamrongol/BoatraceOpenAPIhub/tree/gh-pages/docs/v3)
 
 ```bash
-https://boatraceopenapi.github.io/hub/v3/YYYY/YYYYMMDD.json
+https://lamrongol.github.io/BoatraceOpenAPIhub/v3/YYYY/YYYYMMDD.json
 ```
 
 📅 YYYY → 年<br>
@@ -32,12 +30,12 @@ https://boatraceopenapi.github.io/hub/v3/YYYY/YYYYMMDD.json
 
 ## 🧩 サンプル
 
-### [![v3](https://img.shields.io/badge/Boatrace_Open_API_for_Hub-v3-blue)](https://github.com/BoatraceOpenAPI/hub/tree/gh-pages/docs/v3)
+### [v3](https://github.com/lamrongol/BoatraceOpenAPIhub/tree/gh-pages/docs/v3)
 
 - 2026年03月30日の出走表
-  - [https://boatraceopenapi.github.io/hub/v3/2026/20260330.json](https://boatraceopenapi.github.io/hub/v3/2026/20260330.json)
+  - [hhttps://lamrongol.github.io/BoatraceOpenAPIhub/v3/2026/20260330.json](https://lamrongol.github.io/BoatraceOpenAPIhub/v3/2026/20260330.json)
 - 本日の出走表（ JST〔UTC+9〕基準 ）
-  - [https://boatraceopenapi.github.io/hub/v3/today.json](https://boatraceopenapi.github.io/hub/v3/today.json)
+  - [https://lamrongol.github.io/BoatraceOpenAPIhub/v3/today.json](https://lamrongol.github.io/BoatraceOpenAPIhub/v3/today.json)
 
 ## 🔗 関連リポジトリ
 
@@ -46,6 +44,7 @@ https://boatraceopenapi.github.io/hub/v3/YYYY/YYYYMMDD.json
 | 🐆 出走表 | [Boatrace Open API for Programs](https://github.com/BoatraceOpenAPI/programs) |
 | ⏱️ 直前情報 | [Boatrace Open API for Previews](https://github.com/BoatraceOpenAPI/previews) |
 | 🏆 結果 | [Boatrace Open API for Results](https://github.com/BoatraceOpenAPI/results) |
+| オッズ | [Boatrace Open API for Results](https://github.com/lamrongol/BoatraceOdds) |
 
 ## 📄 ライセンス
 

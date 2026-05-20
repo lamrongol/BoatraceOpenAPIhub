@@ -25,19 +25,34 @@ $previews = json_decode($previewsJson, true)['previews'] ?? [];
 $resultsJson = file_get_contents("https://boatraceopenapi.github.io/results/{$version}/{$directoryName}/{$fileName}.json");
 $results = json_decode($resultsJson, true)['results'] ?? [];
 
-$newPrograms = array_map(function($program) use ($previews, $results) {
-    $program['preview'] = array_find($previews, fn($preview) =>
+$oddsJson = file_get_contents("https://github.com/lamrongol/BoatraceOdds/tree/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
+$odds = json_decode($oddsJson, true)['odds'] ?? [];
+
+$newPrograms = array_map(function ($program) use ($previews, $results, $odds) {
+    $program['preview'] = array_find(
+        $previews,
+        fn($preview) =>
         $preview['stadium_number'] === $program['stadium_number']
-            && $preview['number'] === $program['number']
+        && $preview['number'] === $program['number']
     );
 
-    $program['result'] = array_find($results, fn($result) =>
+    $program['result'] = array_find(
+        $results,
+        fn($result) =>
         $result['stadium_number'] === $program['stadium_number']
-            && $result['number'] === $program['number']
+        && $result['number'] === $program['number']
+    );
+
+    $program['odds'] = array_find(
+        $odds,
+        fn($odds) =>
+        $odds['stadium_number'] === $program['stadium_number']
+        && $odds['number'] === $program['number']
     );
 
     return $program;
 }, $programs);
+
 
 // 出走表データが取得できなかった場合は処理終了
 if (empty($newPrograms ?? [])) {
