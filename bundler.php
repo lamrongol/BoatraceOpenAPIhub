@@ -25,7 +25,7 @@ $previews = json_decode($previewsJson, true)['previews'] ?? [];
 $resultsJson = file_get_contents("https://boatraceopenapi.github.io/results/{$version}/{$directoryName}/{$fileName}.json");
 $results = json_decode($resultsJson, true)['results'] ?? [];
 
-$oddsJson = file_get_contents("https://github.com/lamrongol/BoatraceOdds/tree/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
+$oddsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceOdds/refs/heads/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
 $odds = json_decode($oddsJson, true)['odds'] ?? [];
 
 $newPrograms = array_map(function ($program) use ($previews, $results, $odds) {

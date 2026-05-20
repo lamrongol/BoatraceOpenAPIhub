@@ -48,7 +48,7 @@ $resultsJson = str_replace('"payout"', '"payout"', $resultsJson);
 
 $results = json_decode($resultsJson, true)['results'] ?? [];
 
-$oddsJson = file_get_contents("https://github.com/lamrongol/BoatraceOdds/tree/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
+$oddsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceOdds/refs/heads/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
 $odds = json_decode($oddsJson, true)['odds'] ?? [];
 
 
