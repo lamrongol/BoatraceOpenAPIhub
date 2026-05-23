@@ -1,8 +1,6 @@
-name: cron
+name: once
 
 on:
-  schedule:
-    - cron: "0,30 * * * *"
   workflow_dispatch:
 
 concurrency:
@@ -43,8 +41,10 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
 
-      - name: Bundler Data (v3)
-        run: php bundler.php v3
+      - name: Bundler Data (20260521)
+        run: php bundler.php v3 2026-05-21
+      - name: Bundler Data (20260522)
+        run: php bundler.php v3 2026-05-22
 
       - name: Deploy JSON for bundler v3
         run: |

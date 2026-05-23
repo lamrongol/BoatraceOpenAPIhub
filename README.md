@@ -33,7 +33,7 @@ https://lamrongol.github.io/BoatraceOpenAPIhub/v3/YYYY/YYYYMMDD.json
 ### [v3](https://github.com/lamrongol/BoatraceOpenAPIhub/tree/gh-pages/docs/v3)
 
 - 2026年05月18日の出走表
-  - [https://raw.githubusercontent.com/lamrongol/BoatraceOpenAPIhub/refs/heads/gh-pages/docs/v3/2026/20260518.json](https://raw.githubusercontent.com/lamrongol/BoatraceOpenAPIhub/refs/heads/gh-pages/docs/v3/2026/20260518.json)
+  - [https://lamrongol.github.io/BoatraceOpenAPIhub/docs/v3/2026/20260518.json](https://lamrongol.github.io/BoatraceOpenAPIhub/docs/v3/2026/20260518.json)
 
 ## 🔗 関連リポジトリ
 
