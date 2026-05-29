@@ -10,8 +10,8 @@ use Carbon\CarbonImmutable as Carbon;
 // コマンドライン引数からバージョンを取得（デフォルトは v3）
 $version = $argv[1] ?? 'v3';
 
-// コマンドライン引数から日付を取得（デフォルトは 本日）
-$date = Carbon::parse($argv[2] ?? 'today')->timezone('Asia/Tokyo');
+// コマンドライン引数から日付を取得（デフォルトは 昨日）
+$date = Carbon::parse($argv[2] ?? 'yesterday')->timezone('Asia/Tokyo');
 
 $directoryName = $date->format('Y');
 $fileName = $date->format('Ymd');
@@ -64,4 +64,4 @@ if (empty($newPrograms ?? [])) {
 // 最新データとして today.json にも保存
 $saver = new ProgramSaver();
 $saver->save($newPrograms, "docs/{$version}/{$directoryName}/{$fileName}.json");
-$saver->save($newPrograms, "docs/{$version}/today.json");
+$saver->save($newPrograms, "docs/{$version}/yesterday.json");
