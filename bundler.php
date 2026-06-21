@@ -26,6 +26,9 @@ $resultsJson = file_get_contents("https://boatraceopenapi.github.io/results/{$ve
 $results = json_decode($resultsJson, true)['results'] ?? [];
 
 $oddsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceOdds/refs/heads/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
+$oddsJson = str_replace('"race_date"', '"date"', $oddsJson);
+$oddsJson = str_replace('"race_stadium_number"', '"stadium_number"', $oddsJson);
+$oddsJson = str_replace('"race_number"', '"number"', $oddsJson);
 $odds = json_decode($oddsJson, true)['odds'] ?? [];
 
 $newPrograms = array_map(function ($program) use ($previews, $results, $odds) {
