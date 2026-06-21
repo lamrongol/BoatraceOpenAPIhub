@@ -22,7 +22,7 @@ $programs = json_decode($programsJson, true)['programs'] ?? [];
 $previewsJson = file_get_contents("https://boatraceopenapi.github.io/previews/{$version}/{$directoryName}/{$fileName}.json");
 $previews = json_decode($previewsJson, true)['previews'] ?? [];
 
-$resultsJson = file_get_contents("https://boatraceopenapi.github.io/results/{$version}/{$directoryName}/{$fileName}.json");
+$resultsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceResults/refs/heads/gh-pages/docs/{$version}/{$directoryName}/{$fileName}.json");
 $results = json_decode($resultsJson, true)['results'] ?? [];
 
 $oddsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceOdds/refs/heads/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
