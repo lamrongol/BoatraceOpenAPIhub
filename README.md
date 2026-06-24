@@ -40,7 +40,7 @@ https://lamrongol.github.io/BoatraceOpenAPIhub/v3/YYYY/YYYYMMDD.json
 | 🏷️ 対象 | 📂 リポジトリ |
 |:--|:--|
 | 🐆 出走表 | [Boatrace Open API for Programs](https://github.com/BoatraceOpenAPI/programs) |
-| ⏱️ 直前情報 | [Boatrace Open API for Previews](https://github.com/BoatraceOpenAPI/previews) |
+| ⏱️ 直前情報 | [Boatrace Open API for Previews](https://github.com/lamrongol/BoatracePreviews) |
 | 🏆 結果 | [Boatrace Open API for Results](https://github.com/lamrongol/BoatraceResults) |
 | オッズ | [Boatrace Open API for Results](https://github.com/lamrongol/BoatraceOdds) |
 

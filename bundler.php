@@ -19,7 +19,7 @@ $fileName = $date->format('Ymd');
 $programsJson = file_get_contents("https://boatraceopenapi.github.io/programs/{$version}/{$directoryName}/{$fileName}.json");
 $programs = json_decode($programsJson, true)['programs'] ?? [];
 
-$previewsJson = file_get_contents("https://boatraceopenapi.github.io/previews/{$version}/{$directoryName}/{$fileName}.json");
+$previewsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatracePreviews/refs/heads/gh-pages/docs/{$version}/{$directoryName}/{$fileName}.json");
 $previews = json_decode($previewsJson, true)['previews'] ?? [];
 
 $resultsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceResults/refs/heads/gh-pages/docs/{$version}/{$directoryName}/{$fileName}.json");
