@@ -43,6 +43,7 @@ https://lamrongol.github.io/BoatraceOpenAPIhub/v3/YYYY/YYYYMMDD.json
 | ⏱️ 直前情報 | [Boatrace Open API for Previews](https://github.com/lamrongol/BoatracePreviews) |
 | 🏆 結果 | [Boatrace Open API for Results](https://github.com/lamrongol/BoatraceResults) |
 | オッズ | [Boatrace Open API for Results](https://github.com/lamrongol/BoatraceOdds) |
+| (競艇運営が提供している)コンピューター予想 | [Boatrace Open API for Expects](https://github.com/lamrongol/BoatraceExpect) |
 
 ## 📄 ライセンス
 
