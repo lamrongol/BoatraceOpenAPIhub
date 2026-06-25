@@ -26,19 +26,36 @@ $fileName = $date->format('Ymd');
 
 $programsJson = file_get_contents("https://boatraceopenapi.github.io/programs/{$version}/{$directoryName}/{$fileName}.json");
 $programs = json_decode($programsJson, true)['programs'] ?? [];
-
+if (count($programs) == 0) {
+    exit(1);
+}
 $previewsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatracePreviews/refs/heads/gh-pages/docs/{$version}/{$directoryName}/{$fileName}.json");
 $previews = json_decode($previewsJson, true)['previews'] ?? [];
+if (count($previews) == 0) {
+    exit(1);
+}
 
 $resultsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceResults/refs/heads/gh-pages/docs/{$version}/{$directoryName}/{$fileName}.json");
 $results = json_decode($resultsJson, true)['results'] ?? [];
+if (count($results) == 0) {
+    exit(1);
+}
 
 $oddsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceOdds/refs/heads/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
+//古い形式のための処置
+$oddsJson = str_replace('"race_date"', '"date"', $oddsJson);
+$oddsJson = str_replace('"race_stadium_number"', '"stadium_number"', $oddsJson);
+$oddsJson = str_replace('"race_number"', '"number"', $oddsJson);
 $odds = json_decode($oddsJson, true)['odds'] ?? [];
+if (count($odds) == 0) {
+    exit(1);
+}
 
 $expectJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceExpect/refs/heads/main/docs/{$version}/{$directoryName}/{$fileName}.json");
 $expect = json_decode($expectJson, true)['expect'] ?? [];
-
+if (count($expect) == 0) {
+    exit(1);
+}
 
 $newPrograms = array_map(function ($program) use ($previews, $results, $odds, $expect) {
     $program['preview'] = array_find(
