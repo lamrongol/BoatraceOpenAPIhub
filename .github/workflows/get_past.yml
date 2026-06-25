@@ -2,7 +2,7 @@ name: get_past
 
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "0 */2 * * *"
   workflow_dispatch:
 
 concurrency:
@@ -44,7 +44,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-progress
 
       - name: Bundler Data (v3)
-        run: php convert_bundler.php
+        run: php bundler.php v3 True
 
       - name: Deploy JSON for bundler v3
         run: |

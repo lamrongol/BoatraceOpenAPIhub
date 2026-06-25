@@ -9,9 +9,17 @@ use Carbon\CarbonImmutable as Carbon;
 
 // コマンドライン引数からバージョンを取得（デフォルトは v3）
 $version = $argv[1] ?? 'v3';
+$day_specified = ($argc == 3 && $argv[2] == 'True');
 
 // コマンドライン引数から日付を取得（デフォルトは 昨日）
-$date = Carbon::parse($argv[2] ?? 'yesterday')->timezone('Asia/Tokyo');
+$date = Carbon::yesterday('Asia/Tokyo');
+if ($day_specified) {
+    $date = new Carbon(file_get_contents("docs/{$version}/recorded_day.json"))->timezone('Asia/Tokyo');
+    $date = $date->subDay();
+    if ($date->isBefore(Carbon::parse('2020-01-01'))) {
+        exit;
+    }
+}
 
 $directoryName = $date->format('Y');
 $fileName = $date->format('Ymd');
@@ -26,12 +34,13 @@ $resultsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/Bo
 $results = json_decode($resultsJson, true)['results'] ?? [];
 
 $oddsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceOdds/refs/heads/gh-pages/docs/v3/{$directoryName}/{$fileName}.json");
-$oddsJson = str_replace('"race_date"', '"date"', $oddsJson);
-$oddsJson = str_replace('"race_stadium_number"', '"stadium_number"', $oddsJson);
-$oddsJson = str_replace('"race_number"', '"number"', $oddsJson);
 $odds = json_decode($oddsJson, true)['odds'] ?? [];
 
-$newPrograms = array_map(function ($program) use ($previews, $results, $odds) {
+$expectJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceExpect/refs/heads/main/docs/{$version}/{$directoryName}/{$fileName}.json");
+$expect = json_decode($expectJson, true)['expect'] ?? [];
+
+
+$newPrograms = array_map(function ($program) use ($previews, $results, $odds, $expect) {
     $program['preview'] = array_find(
         $previews,
         fn($preview) =>
@@ -53,6 +62,13 @@ $newPrograms = array_map(function ($program) use ($previews, $results, $odds) {
         && $odds['number'] === $program['number']
     );
 
+    $program['expect'] = array_find(
+        $expect,
+        fn($expect) =>
+        $expect['stadium_number'] === $program['stadium_number']
+        && $expect['number'] === $program['number']
+    );
+
     return $program;
 }, $programs);
 
@@ -67,4 +83,9 @@ if (empty($newPrograms ?? [])) {
 // 最新データとして today.json にも保存
 $saver = new ProgramSaver();
 $saver->save($newPrograms, "docs/{$version}/{$directoryName}/{$fileName}.json");
-$saver->save($newPrograms, "docs/{$version}/yesterday.json");
+if ($day_specified) {
+    file_put_contents("docs/{$version}/recorded_day.json", $date->toDateString());
+} else {
+    $saver->save($results, "docs/{$version}/yesterday.json");
+}
+
