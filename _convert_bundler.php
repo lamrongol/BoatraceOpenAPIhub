@@ -1,4 +1,5 @@
 <?php
+//archive
 
 declare(strict_types=1);
 
@@ -10,7 +11,7 @@ use Carbon\CarbonImmutable as Carbon;
 // コマンドライン引数から日付を取得（デフォルトは 本日）
 $date = new Carbon(file_get_contents("docs/v3/recorded_day.json"))->timezone('Asia/Tokyo');
 $date = $date->subDay();
-if ($date->isBefore(Carbon::parse('2025-07-15'))) {
+if ($date->isBefore(Carbon::parse('2020-01-01'))) {
     exit;
 }
 
