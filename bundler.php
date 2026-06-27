@@ -103,6 +103,6 @@ $saver->save($newPrograms, "docs/{$version}/{$directoryName}/{$fileName}.json");
 if ($day_specified) {
     file_put_contents("docs/{$version}/recorded_day.json", $date->toDateString());
 } else {
-    $saver->save($results, "docs/{$version}/yesterday.json");
+    $saver->save($newPrograms, "docs/{$version}/yesterday.json");
 }
 
