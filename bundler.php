@@ -58,18 +58,18 @@ if (count($expect) == 0) {
 }
 
 $newPrograms = array_map(function ($program) use ($previews, $results, $odds, $expect) {
+    $program['expect'] = array_find(
+        $expect,
+        fn($expect) =>
+        $expect['stadium_number'] === $program['stadium_number']
+        && $expect['number'] === $program['number']
+    );
+
     $program['preview'] = array_find(
         $previews,
         fn($preview) =>
         $preview['stadium_number'] === $program['stadium_number']
         && $preview['number'] === $program['number']
-    );
-
-    $program['result'] = array_find(
-        $results,
-        fn($result) =>
-        $result['stadium_number'] === $program['stadium_number']
-        && $result['number'] === $program['number']
     );
 
     $program['odds'] = array_find(
@@ -79,11 +79,11 @@ $newPrograms = array_map(function ($program) use ($previews, $results, $odds, $e
         && $odds['number'] === $program['number']
     );
 
-    $program['expect'] = array_find(
-        $expect,
-        fn($expect) =>
-        $expect['stadium_number'] === $program['stadium_number']
-        && $expect['number'] === $program['number']
+    $program['result'] = array_find(
+        $results,
+        fn($result) =>
+        $result['stadium_number'] === $program['stadium_number']
+        && $result['number'] === $program['number']
     );
 
     return $program;
