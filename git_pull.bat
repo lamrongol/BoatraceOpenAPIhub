@@ -1,2 +1,3 @@
-cd E:\workspaces\Gamble\BoatRace\BoatraceOpenAPI\hub
+
+cd %~dp0
 git pull
