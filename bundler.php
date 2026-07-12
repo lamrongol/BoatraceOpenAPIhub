@@ -25,7 +25,8 @@ $directoryName = $date->format('Y');
 $fileName = $date->format('Ymd');
 
 $programsJson = file_get_contents("https://boatraceopenapi.github.io/programs/{$version}/{$directoryName}/{$fileName}.json");
-$programs = json_decode($programsJson, true)['programs'] ?? [];
+$tmp = json_decode($programsJson, true);
+$programs = ($day_specified ? $tmp['programs'] : $tmp['today']['programs']) ?? [];
 if (count($programs) == 0) {
     exit(1);
 }
