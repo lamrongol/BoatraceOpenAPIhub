@@ -42,6 +42,13 @@ jobs:
       - name: Bundler Data (v3)
         run: php bundler.php v3 True
 
+      - name: Rust stable version
+        run: |
+          cd rust_v3_covert_v1
+          rustup update stable
+          cargo build --release
+          cargo run --release
+
       - name: Deploy JSON for bundler v3
         run: |
           git config --global user.name "github-actions[bot]"

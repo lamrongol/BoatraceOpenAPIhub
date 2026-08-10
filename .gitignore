@@ -116,3 +116,6 @@ coverage/
 *.dll
 *.exe
 *.pid
+
+# rust
+rust_v3_covert_v1/target/
