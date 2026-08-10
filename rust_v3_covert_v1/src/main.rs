@@ -153,7 +153,18 @@ fn convert_v3_to_v1(original: &PathBuf, converted_file: &PathBuf) {
             racers_map.insert(number.to_string(), racer.clone());
         }
         body_json["racers"] = Value::Object(racers_map);
-        let mut body: Body = serde_json::from_str(&serde_json::to_string(&body_json).unwrap()).unwrap();
+        //result
+        {
+            let racers = body_json["result"]["racers"].as_array().unwrap().clone();
+            let mut racers_map = serde_json::Map::new();
+            for racer in racers.iter() {
+                let number = racer["entry_number"].as_i64().unwrap();
+                racers_map.insert(number.to_string(), racer.clone());
+            }
+            body_json["result"]["racers"] = Value::Object(racers_map);
+        }
+
+        let body: Body = serde_json::from_str(&serde_json::to_string(&body_json).unwrap()).unwrap();
         stadium_obj.races.insert(race_number, body);
     }
     let wrapper = Wrapper { programs };
