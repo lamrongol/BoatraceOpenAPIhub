@@ -62,7 +62,7 @@ jobs:
             }  | sort -u
           )
 
-          FILES += $(
+          FILES+=$(
             {
               git ls-files -m -- 'docs/v1' | grep '\.json$'
               git diff --cached --name-only --diff-filter=AM -- 'docs/v1' | grep '\.json$'
