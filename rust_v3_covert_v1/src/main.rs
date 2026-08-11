@@ -76,6 +76,7 @@ fn convert_v3_to_v1(original: &PathBuf, converted_file: &PathBuf) {
         .replace("\"racer_boat_number\"", "\"entry_number\"")
         .replace("\"racer_name\"", "\"name\"")
         .replace("\"racer_number\"", "\"number\"")
+        .replace("\"racer_class_number\"", "\"rank_number\"")
         .replace("\"racer_branch_number\"", "\"branch_number\"")
         .replace("\"racer_birthplace_number\"", "\"birthplace_number\"")
         .replace("\"racer_age\"", "\"age\"")
