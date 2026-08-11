@@ -69,7 +69,7 @@ jobs:
               git ls-files --others --exclude-standard -- 'docs/v1' | grep '\.json$'
             }  | sort -u
           )
-          FILES="$V3FILES\n$V1FILES"
+          FILES="$V3FILES"$'\n'"$V1FILES"
 
           if [ -z "$FILES" ]; then
             echo "No JSON changes in docs/v3 to commit."
