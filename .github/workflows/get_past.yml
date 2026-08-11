@@ -59,6 +59,10 @@ jobs:
               git ls-files -m -- 'docs/v3' | grep '\.json$'
               git diff --cached --name-only --diff-filter=AM -- 'docs/v3' | grep '\.json$'
               git ls-files --others --exclude-standard -- 'docs/v3' | grep '\.json$'
+            } | {
+              git ls-files -m -- 'docs/v1' | grep '\.json$'
+              git diff --cached --name-only --diff-filter=AM -- 'docs/v1' | grep '\.json$'
+              git ls-files --others --exclude-standard -- 'docs/v1' | grep '\.json$'
             } | sort -u
           )
 
