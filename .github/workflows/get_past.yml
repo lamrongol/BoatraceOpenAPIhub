@@ -54,7 +54,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          FILES=$(
+          V3FILES=$(
             {
               git ls-files -m -- 'docs/v3' | grep '\.json$'
               git diff --cached --name-only --diff-filter=AM -- 'docs/v3' | grep '\.json$'
@@ -62,13 +62,14 @@ jobs:
             }  | sort -u
           )
 
-          FILES+=$(
+          V1FILES=$(
             {
               git ls-files -m -- 'docs/v1' | grep '\.json$'
               git diff --cached --name-only --diff-filter=AM -- 'docs/v1' | grep '\.json$'
               git ls-files --others --exclude-standard -- 'docs/v1' | grep '\.json$'
             }  | sort -u
           )
+          FILES="$V3FILES\n$V1FILES"
 
           if [ -z "$FILES" ]; then
             echo "No JSON changes in docs/v3 to commit."
