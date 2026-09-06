@@ -2,8 +2,12 @@ name: get_past
 
 on:
   schedule:
-    - cron: "16 */1 * * *"
+    - cron: "16/30 * * * *"
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 
 permissions:
   contents: write
