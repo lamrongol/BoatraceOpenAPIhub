@@ -2,7 +2,7 @@ name: get_past
 
 on:
   schedule:
-    - cron: "16/30 * * * *"
+    - cron: "19 */2 * * *"
   workflow_dispatch:
 
 concurrency:
