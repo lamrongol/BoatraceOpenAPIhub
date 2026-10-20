@@ -92,3 +92,40 @@ jobs:
           git push origin HEAD || (git pull --rebase --autostash && git push origin HEAD)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Odds Dispatch Workflow
+        uses: lasith-kg/dispatch-workflow@v3.0.0
+        with:
+          dispatch-method: workflow_dispatch
+          repo: BoatraceOdds
+          owner: lamrongol
+          ref: gh-pages
+          workflow: get_past.yml
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Expect Dispatch Workflow
+        uses: lasith-kg/dispatch-workflow@v3.0.0
+        with:
+          dispatch-method: workflow_dispatch
+          repo: BoatraceExpect
+          owner: lamrongol
+          ref: main
+          workflow: get_past.yml
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Previews Dispatch Workflow
+        uses: lasith-kg/dispatch-workflow@v3.0.0
+        with:
+          dispatch-method: workflow_dispatch
+          repo: BoatracePreviews
+          owner: lamrongol
+          ref: gh-pages
+          workflow: get_past.yml
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Results Dispatch Workflow
+        uses: lasith-kg/dispatch-workflow@v3.0.0
+        with:
+          dispatch-method: workflow_dispatch
+          repo: BoatraceResults
+          owner: lamrongol
+          ref: gh-pages
+          workflow: get_past.yml
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}          
