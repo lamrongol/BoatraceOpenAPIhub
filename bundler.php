@@ -30,13 +30,13 @@ $programs = ($day_specified ? $tmp['programs'] : $tmp['today']['programs']) ?? [
 if (count($programs) == 0) {
     exit(1);
 }
-$previewsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatracePreviews/refs/heads/gh-pages/docs/{$version}/{$directoryName}/{$fileName}.json");
+$previewsJson = file_get_contents("https://boatraceopenapi.github.io/previews/{$version}/{$directoryName}/{$fileName}.json");
 $previews = json_decode($previewsJson, true)['previews'] ?? [];
 if (count($previews) == 0) {
     exit(1);
 }
 
-$resultsJson = file_get_contents("https://raw.githubusercontent.com/lamrongol/BoatraceResults/refs/heads/gh-pages/docs/{$version}/{$directoryName}/{$fileName}.json");
+$resultsJson = file_get_contents("https://boatraceopenapi.github.io/results/{$version}/{$directoryName}/{$fileName}.json");
 $results = json_decode($resultsJson, true)['results'] ?? [];
 if (count($results) == 0) {
     exit(1);
