@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
+      - name: Wait for 1 minute
+        run: sleep 60
       - name: Setup PHP
         uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f
         with:
