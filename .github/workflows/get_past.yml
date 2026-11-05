@@ -111,21 +111,3 @@ jobs:
           ref: main
           workflow: get_past.yml
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      - name: Previews Dispatch Workflow
-        uses: lasith-kg/dispatch-workflow@v3.0.0
-        with:
-          dispatch-method: workflow_dispatch
-          repo: BoatracePreviews
-          owner: lamrongol
-          ref: gh-pages
-          workflow: get_past.yml
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      - name: Results Dispatch Workflow
-        uses: lasith-kg/dispatch-workflow@v3.0.0
-        with:
-          dispatch-method: workflow_dispatch
-          repo: BoatraceResults
-          owner: lamrongol
-          ref: gh-pages
-          workflow: get_past.yml
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}          
